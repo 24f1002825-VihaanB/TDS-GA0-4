@@ -12,8 +12,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
-    allow_credentials=True,
-    allow_methods=["POST"], 
+    allow_credentials=False, # <-- FIXED: This must be False when using "*"
+    allow_methods=["*"],     # <-- FIXED: Changed to "*" so OPTIONS preflight requests pass
     allow_headers=["*"],
 )
 
